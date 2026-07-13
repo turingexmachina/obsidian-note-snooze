@@ -76,7 +76,8 @@ export default class NoteSnoozePlugin extends Plugin {
 	}
 
 	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+		const loaded = (await this.loadData()) as Partial<NoteSnoozeSettings> | null;
+		this.settings = Object.assign({}, DEFAULT_SETTINGS, loaded);
 	}
 
 	async saveSettings() {
@@ -108,7 +109,7 @@ export default class NoteSnoozePlugin extends Plugin {
 
 	private isSnoozed(file: TFile): boolean {
 		const cache = this.app.metadataCache.getFileCache(file);
-		const raw = cache?.frontmatter?.[this.settings.propertyName];
+		const raw: unknown = cache?.frontmatter?.[this.settings.propertyName];
 		if (raw === undefined || raw === null || raw === "") return false;
 
 		const target = parseSnoozeDate(raw);
