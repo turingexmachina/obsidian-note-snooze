@@ -1,0 +1,22 @@
+{
+	"name": "obsidian-note-snooze",
+	"version": "1.0.0",
+	"description": "Hide notes from the file explorer until a date specified in a frontmatter property.",
+	"main": "main.js",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^20.11.5",
+		"builtin-modules": "^3.3.0",
+		"esbuild": "0.19.11",
+		"obsidian": "latest",
+		"tslib": "2.6.2",
+		"typescript": "5.3.3"
+	}
+}
