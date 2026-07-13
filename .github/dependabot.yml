@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    ignore:
+      # obsidian@1.13.1's published .d.ts is broken (Menu/Modal/PopoverSuggest
+      # claim "implements HistoryHandler" without implementing onHistoryBack,
+      # verified against obsidianmd/obsidian-api commit 6c173d4e). Bounded to
+      # the known-broken range so this expires on its own: Dependabot resumes
+      # proposing obsidian bumps the moment a version above 1.13.1 ships, and
+      # ci.yml's tsc check still fails the PR if that release is still broken.
+      - dependency-name: "obsidian"
+        versions: ["<=1.13.1"]
