@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-note-snooze",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Hide notes from the file explorer until a date specified in a frontmatter property.",
 	"main": "main.js",
 	"scripts": {

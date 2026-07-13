@@ -1,7 +1,7 @@
 {
 	"id": "note-snooze",
 	"name": "Note Snooze",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "1.4.0",
 	"description": "Hide notes from the file explorer until a date specified in a frontmatter property.",
 	"author": "turingexmachina",
